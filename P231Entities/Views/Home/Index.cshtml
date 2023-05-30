@@ -1,0 +1,35 @@
+﻿@model CardProductVM;
+@{
+    ViewBag.Title = "Index";
+}
+<h1>
+    Index page
+</h1>
+
+<ul>
+    @foreach (Product item in Model.Products)
+    {
+        <li>
+            <div>
+                <img width="200" src="@item.Image" alt="@item.Name">
+            </div>
+            <p style="@(item.Price <100 ? "color:red":"color:black")">
+                @item.Name => @item.SKU => @item.Price
+            </p>
+        </li>
+    }
+</ul>
+
+<ul>
+    @foreach (Card item in Model.Cards)
+    {
+        <li style="display:flex">
+            <div>
+                <img width="200" src="@item.Image" alt="@item.Name">
+            </div>
+            <p>
+                @item.Name
+            </p>
+        </li>
+    }
+</ul>
