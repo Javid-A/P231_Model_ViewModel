@@ -3,11 +3,11 @@ using P231FrontToBack.Entities;
 
 namespace P231FrontToBack.Controllers
 {
-    public class HomeController:Controller
+    public class PortfoliosController:Controller
     {
         readonly List<Portfolio> _context;
 
-        public HomeController()
+        public PortfoliosController()
         {
             _context = new()
             {
@@ -30,8 +30,15 @@ namespace P231FrontToBack.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Portfolio> portfolios = _context.AsEnumerable();
-            return View(portfolios);
+            return View();
+        }
+
+        public IActionResult Details(int id)
+        {
+            if (id <= 0) return BadRequest();
+            Portfolio? portfolio = _context.Find(p=>p.Id == id);
+            if (portfolio is null) return NotFound();
+            return View(portfolio);
         }
     }
 }
