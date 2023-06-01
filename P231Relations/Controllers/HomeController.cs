@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using P231Relations.DAL;
 using P231Relations.Entities;
+using P231Relations.ViewModels;
 
 namespace P231Relations.Controllers
 {
@@ -13,9 +15,16 @@ namespace P231Relations.Controllers
             _context = context;
         }
         public IActionResult Index()
-        {
-            List<Student> students = _context.Students.ToList();
-            return View(students);
+        {  
+            IEnumerable<Country> countries = _context.Countries.Include(c=>c.Capital).AsEnumerable();
+            IEnumerable<Capital> capitals = _context.Capitals.AsEnumerable();
+            CountryCapitalVM model = new()
+            {
+                Countries = countries,
+                Capitals = capitals
+            };
+
+            return View(model);
         }
     }
 }

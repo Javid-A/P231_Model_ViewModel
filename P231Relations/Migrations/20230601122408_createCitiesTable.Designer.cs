@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using P231Relations.DAL;
 
@@ -10,9 +11,10 @@ using P231Relations.DAL;
 namespace P231Relations.Migrations
 {
     [DbContext(typeof(RelationsDbContext))]
-    partial class RelationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230601122408_createCitiesTable")]
+    partial class createCitiesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

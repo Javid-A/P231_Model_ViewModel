@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Country>
+<ol>
+    @foreach (Country country in Model)
+    {
+        <li>
+            <p>
+                @country.Name
+            </p>
+            <p>
+                @country.Population
+            </p>
+            <ol>
+                @foreach (City city in country.Cities)
+                {
+                    <li>
+                        <p>
+                            @city.Name
+                        </p>
+                        <p>
+                            @city.Area
+                        </p>
+                    </li>
+                }
+            </ol>
+        </li>
+    }
+</ol>

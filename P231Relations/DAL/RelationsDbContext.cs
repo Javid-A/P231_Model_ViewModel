@@ -10,5 +10,8 @@ namespace P231Relations.DAL
             
         }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Capital> Capitals { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<City> Cities { get; set; }
     }
 }

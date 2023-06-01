@@ -1,11 +1,35 @@
-﻿@using P231Relations.Entities;
-@model List<Student>
+﻿@model CountryCapitalVM
 <h1>
     Index page
 </h1>
 
-@foreach(Student student in Model){
-    <p>
-        @student.Firstname
-    </p>
-}
+<ol>
+
+    @foreach (Country country in Model.Countries)
+    {
+        <li>
+            <p>
+                @country.Name => Capital: @country.Capital.Name
+            </p>
+            <p>
+                @country.Population
+            </p>
+        </li>
+    }
+</ol>
+
+
+@*<ol>
+
+    @foreach (Capital capital in Model.Capitals)
+    {
+        <li>
+            <p>
+                @capital.Name
+            </p>
+            <p>
+                @capital.Population
+            </p>
+        </li>
+    }
+</ol>*@
